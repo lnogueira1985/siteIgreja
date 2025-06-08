@@ -1,0 +1,1159 @@
+/* Importado fontes Poppins e Ubuntu do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Moon+Dance&display=swap');
+
+/* --- Variáveis CSS para Cores --- */
+/* Estas variáveis facilitam a manutenção e a padronização das cores em todo o site. */
+:root {
+    --main-bg-color: #040714; /* Cor de fundo principal escura (azul marinho quase preto) */
+    --card-bg-color: #08132f; /* Cor de fundo dos cards (azul mais escuro) */
+    --secondary-bg-color: #090b13; /* Cor de fundo secundária (um pouco mais clara que a main) */
+    --text-color: #fff; /* Cor do texto principal (branco) */
+    --highlight-color: #0063e5; /* Cor de destaque (azul vibrante) */
+    --border-color: #1b202a; /* Cor para bordas sutis */
+}
+
+/* --- Reset Básico e Estilos Globais --- */
+/* Garante consistência entre navegadores e define estilos padrão para o corpo do site. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Inclui padding e border na largura/altura total */
+    text-decoration: none; /* Remove sublinhado de links padrão */
+}
+
+body {
+    background-color: var(--main-bg-color); /* Fundo da página */
+    color: var(--text-color); /* Cor padrão do texto */
+    font-family: 'Ubuntu', sans-serif; /* Fonte principal para o corpo do texto */
+    line-height: 1.6; /* Espaçamento entre linhas para melhor legibilidade */
+}
+
+/* Classe utilitária para centralizar e limitar a largura do conteúdo */
+.max-width {
+    max-width: 1300px; /* Largura máxima do conteúdo */
+    padding: 0 15px; /* Padding nas laterais para telas menores */
+    margin: 0 auto; /* Centraliza o bloco */
+}
+
+/* Estilo para Títulos de Seção (h2) */
+/* Aplicado a todos os títulos principais das seções do site. */
+.section-title {
+    text-align: center;
+    margin: 60px 0 40px; /* Margem superior, inferior e sem margem lateral */
+    font-weight: 500;
+    font-size: 38px;
+    color: var(--text-color);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Estilo para Botões (CTAs) */
+/* Usado para botões de "Leia Mais", "Saiba Mais" e "Enviar Mensagem". */
+.btn {
+    display: inline-block;
+    background: var(--highlight-color);
+    color: var(--text-color);
+    font-size: 20px;
+    padding: 12px 30px;
+    margin-top: 20px;
+    font-weight: 400;
+    border-radius: 6px;
+    border: 2px solid var(--highlight-color);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    color: var(--highlight-color);
+    background: none;
+}
+
+/* --- Cabeçalho e Navegação Principal --- */
+/* Estilos para o cabeçalho fixo e o menu de navegação. */
+.main-header {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    padding: 20px 0;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: var(--main-bg-color);
+    border-bottom: solid var(--border-color) 1px;
+    transition: all 0.3s ease;
+}
+
+.main-header .max-width {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-header .logo a {
+    color: var(--highlight-color);
+    font-size: 35px;
+    font-weight: 500;
+    font-family: 'Moon Dance', cursive;
+}
+
+.main-header .main-nav .menu li {
+    list-style: none;
+    display: inline-block;
+}
+
+.main-header .main-nav .menu li a {
+    display: block;
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: 400;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+}
+
+.main-header .main-nav .menu li a:hover {
+    color: var(--highlight-color);
+}
+
+/* Estilo para o link da página ativa no menu (ex: na página "Sobre", o link "Sobre" fica em destaque) */
+.main-header .main-nav .menu li a.active {
+    color: var(--highlight-color);
+}
+
+/* --- Seção Hero (Topo da Home) --- */
+/* Estilos para o grande banner de destaque na página inicial. */
+.hero-section {
+    color: var(--text-color);
+    display: flex;
+    background: linear-gradient(rgba(4, 7, 20, 0.7), rgba(4, 7, 20, 0.7)), url('../img/hero-bg.jpg') no-repeat center center/cover;
+    height: 100vh;
+    min-height: 500px;
+    background-attachment: fixed; /* Efeito de parallax */
+    font-family: 'Ubuntu', sans-serif;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.hero-section .max-width {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.hero-section .hero-content {
+    max-width: 600px;
+}
+
+.hero-section .hero-content h1 {
+    font-size: 55px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.hero-section .hero-content h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+/* --- Estilos Comuns para Cards --- */
+/* Aplicado a cards de Comunidades, Serviços e Liderança, garantindo consistência visual. */
+.common-card {
+    background: var(--card-bg-color);
+    text-align: center;
+    border-radius: 8px;
+    padding: 40px 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Garante que os cards tenham a mesma altura em um grid/flex */
+}
+
+.common-card:hover {
+    background: var(--highlight-color);
+    transform: translateY(-5px);
+}
+
+.common-card .common-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.common-card i {
+    font-size: 55px;
+    color: var(--highlight-color);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    display: block;
+    min-height: 55px; /* Mantém o ícone em um espaço consistente */
+}
+
+.common-card:hover i {
+    color: var(--text-color);
+}
+
+.common-card .text {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text-color);
+    line-height: 1.2;
+    min-height: 70px; /* Define altura mínima para alinhamento de texto (2 linhas) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.common-card p {
+    font-size: 16px;
+    color: var(--text-color);
+    opacity: 0.8;
+    min-height: 50px; /* Define altura mínima para parágrafo (2-3 linhas) */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+/* --- Seções de Conteúdo (Comunidades e Serviços) --- */
+/* Padding padrão para todas as seções que contêm conteúdo principal. */
+.section-padding {
+    padding: 80px 0;
+}
+
+.communities-section {
+    background-color: var(--secondary-bg-color);
+}
+
+.services-section {
+    background-color: var(--main-bg-color);
+}
+
+/* Grid específico para COMUNIDADES (favorece 4 itens por linha em desktop) */
+.communities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* Grid específico para SERVIÇOS (favorece 3 itens por linha em desktop) */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* --- Seção de Notícias e Destaques (Carrossel) --- */
+/* Estilos para o carrossel de notícias na página inicial. */
+.news-section {
+    background-color: var(--secondary-bg-color);
+    padding: 80px 0;
+}
+
+.news-carousel-container {
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px;
+}
+
+.news-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    width: fit-content;
+    transition: transform 0.5s ease-in-out;
+}
+
+.news-card {
+    background: var(--card-bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 0 0 calc(33.333% - 20px); /* 3 cards por linha com gap de 30px */
+    margin-right: 30px; /* Gap entre os cards */
+}
+
+.news-card:last-child {
+    margin-right: 0;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.news-card .news-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.news-card .news-meta {
+    font-size: 14px;
+    color: var(--highlight-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.news-card .news-meta i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.news-card .news-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    line-height: 1.3;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.news-card .news-excerpt {
+    font-size: 15px;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    flex-grow: 1;
+    min-height: 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.news-card .read-more-btn {
+    display: inline-block;
+    background: var(--highlight-color);
+    color: var(--text-color);
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s ease;
+    align-self: center;
+}
+
+.news-card .read-more-btn:hover {
+    background: none;
+    color: var(--highlight-color);
+    border: 1px solid var(--highlight-color);
+}
+
+.text-center {
+    text-align: center; /* Classe utilitária para centralizar texto */
+}
+
+/* --- Estilos para as Bolinhas de Paginação do Carrossel --- */
+.carousel-pagination-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    margin: 0 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.carousel-dot.active {
+    background-color: var(--highlight-color);
+    transform: scale(1.2);
+}
+
+.carousel-dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- Rodapé Principal --- */
+/* Estilos para o rodapé do site. */
+.main-footer {
+    background: var(--secondary-bg-color);
+    padding: 25px 23px;
+    color: var(--text-color);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    border-top: solid var(--border-color) 1px;
+}
+
+.main-footer span {
+    color: var(--highlight-color);
+    font-weight: 500;
+}
+
+.main-footer i {
+    color: var(--highlight-color);
+    margin: 0 5px;
+}
+
+/* --- Estilos da Página Sobre (sobre.html) --- */
+
+/* Seção de Banner Interno (reutilizável para outras páginas internas) */
+.internal-hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    min-height: 250px;
+    background: linear-gradient(rgba(4, 7, 20, 0.7), rgba(4, 7, 20, 0.7)), url('../img/about-bg.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    text-align: center;
+    padding-top: 80px;
+    color: var(--text-color);
+}
+
+.internal-hero-section .hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.internal-hero-section .hero-content h2 {
+    font-size: 26px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Estilos para o conteúdo textual da seção "Sobre" (História, Missão, Visão) */
+.about-content-section {
+    background-color: var(--main-bg-color);
+}
+
+.about-content-section .content-text {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: justify;
+    opacity: 0.9;
+}
+
+.about-content-section .content-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Grid para a seção de Valores */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.values-grid .value-item {
+    background: var(--card-bg-color);
+    padding: 30px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.values-grid .value-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.values-grid .value-item i {
+    font-size: 45px;
+    color: var(--highlight-color);
+    margin-bottom: 15px;
+}
+
+.values-grid .value-item h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.values-grid .value-item p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Seção de Liderança/Equipe (Opcional) */
+.leadership-section {
+    background-color: var(--secondary-bg-color);
+}
+
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.leader-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.leader-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid var(--highlight-color);
+}
+
+.leader-card .leader-info h3 {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.leader-card .leader-info p {
+    font-size: 16px;
+    color: var(--highlight-color);
+    margin-bottom: 10px;
+}
+
+.leader-card .leader-description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* --- Estilos da Página Contato (contato.html) --- */
+
+/* Banner específico para a página de contato (reutiliza internal-hero-section) */
+.contact-hero {
+    background: linear-gradient(rgba(4, 7, 20, 0.7), rgba(4, 7, 20, 0.7)), url('../img/contact-bg.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+}
+
+/* Seção de Informações de Contato */
+.contact-info-section {
+    background-color: var(--main-bg-color);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.contact-item {
+    padding: 30px 20px;
+}
+
+.contact-item i {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.contact-item h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    font-size: 16px;
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.5;
+    margin-bottom: 5px;
+}
+
+.contact-item p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-item a {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--highlight-color);
+    text-decoration: underline;
+}
+
+/* Seção de Formulário de Contato */
+.contact-form-section {
+    background-color: var(--secondary-bg-color);
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: var(--main-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--highlight-color);
+    outline: none;
+}
+
+/* Placeholder styling */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form .btn {
+    width: auto;
+    margin-top: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Seção de Mapa */
+.map-section {
+    padding: 0;
+    background-color: var(--main-bg-color);
+}
+
+.map-container {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+/* --- Modal (Pop-up para Comunidades) --- */
+.modal {
+    display: none; /* Oculta o modal por padrão */
+    position: fixed; /* Fica fixo na tela, sobre todo o conteúdo */
+    z-index: 1001; /* Garante que fique acima de outros elementos (como o header fixo) */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total da tela */
+    height: 100%; /* Altura total da tela */
+    overflow: auto; /* Adiciona scroll se o conteúdo for maior que a tela */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente escuro */
+    display: flex; /* Usamos flexbox para centralizar o conteúdo do modal */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    opacity: 0; /* Começa transparente para a animação */
+    visibility: hidden; /* Garante que não seja interativo quando oculto */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Animação de fade */
+}
+
+/* Quando a classe 'open' é adicionada via JavaScript, o modal se torna visível */
+.modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--card-bg-color); /* Fundo do modal com a cor dos cards */
+    margin: auto; /* Ajuda na centralização (mesmo com flexbox) */
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%; /* Largura padrão do conteúdo do modal */
+    max-width: 600px; /* Largura máxima para desktops */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Sombra mais forte */
+    position: relative; /* Para posicionar o botão de fechar */
+    animation-name: animatetop; /* Animação de entrada */
+    animation-duration: 0.4s;
+    color: var(--text-color); /* Cor do texto dentro do modal */
+    text-align: center; /* Centraliza o texto do modal */
+}
+
+.modal-content img { /* <--- ADICIONE ESTA NOVA REGRA AQUI */
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block; /* Remove espaço extra abaixo da imagem */
+    margin: 15px auto; /* Centraliza a imagem e adiciona um pouco de margem */
+    border-radius: 5px; /* Opcional: Adiciona bordas arredondadas à imagem no modal */
+}
+
+/* Animação para o modal aparecer de cima para baixo */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0;}
+    to {top: 0; opacity: 1;}
+}
+
+.modal-content h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--highlight-color); /* Título do modal com cor de destaque */
+}
+
+.modal-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.modal-content .btn {
+    margin-top: 0; /* Remove margem superior padrão do btn */
+}
+
+.close-button {
+    color: var(--text-color); /* Cor branca para o X */
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--highlight-color); /* Cor de destaque ao passar o mouse */
+}
+
+/* --- Media Queries para o Modal --- */
+
+/* Ajustes para telas menores que 768px (tablets e smartphones grandes) */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 30px;
+        width: 95%; /* Ocupa mais largura em telas menores */
+    }
+    .modal-content h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    .modal-content p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .close-button {
+        font-size: 28px;
+        top: 10px;
+        right: 20px;
+    }
+}
+
+/* Ajustes para telas muito pequenas (smartphones) */
+@media (max-width: 576px) {
+    .modal-content {
+        padding: 20px;
+        border-radius: 8px;
+    }
+    .modal-content h2 {
+        font-size: 24px;
+    }
+    .modal-content p {
+        font-size: 15px;
+    }
+    .close-button {
+        font-size: 26px;
+        top: 8px;
+        right: 15px;
+    }
+}
+
+
+/* --- Responsividade Geral --- */
+/* Media queries para adaptar o layout a diferentes tamanhos de tela (mobile, tablet, desktop). */
+
+/* Telas maiores que 768px e menores que 992px (desktops menores/tablets grandes) */
+@media (max-width: 992px) {
+    .main-header .logo a {
+        font-size: 32px;
+    }
+    .main-header .main-nav .menu li a {
+        font-size: 16px;
+        margin-left: 18px;
+    }
+    .hero-section .hero-content h1 {
+        font-size: 45px;
+    }
+    .hero-section .hero-content h2 {
+        font-size: 28px;
+    }
+    .section-title {
+        font-size: 32px;
+    }
+
+    /* Ajuste responsivo para grids de Comunidades e Serviços */
+    .services-grid, .communities-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    
+    /* Responsividade da Seção de Notícias (Carrossel) */
+    .news-card {
+        flex: 0 0 calc(33.333% - 13.333px); /* Ajuste para 3 colunas com 20px de gap */
+        margin-right: 20px;
+    }
+    .news-card .news-title {
+        min-height: 60px;
+    }
+    .news-card .news-excerpt {
+        min-height: 45px;
+    }
+
+    /* Responsividade da Página Sobre */
+    .internal-hero-section .hero-content h1 {
+        font-size: 40px;
+    }
+    .internal-hero-section .hero-content h2 {
+        font-size: 22px;
+    }
+    .about-content-section .content-text {
+        font-size: 17px;
+    }
+    .values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .leader-card img {
+        width: 120px;
+        height: 120px;
+    }
+    .leader-card .leader-info h3 {
+        font-size: 24px;
+    }
+
+    /* Responsividade da Página Contato */
+    .contact-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .contact-form {
+        padding: 30px;
+    }
+}
+
+/* Telas menores que 768px e maiores que 576px (tablets e smartphones grandes) */
+@media (max-width: 768px) {
+    .main-header .max-width {
+        flex-direction: column;
+        text-align: center;
+    }
+    .main-header .main-nav {
+        margin-top: 15px;
+    }
+    .main-header .main-nav .menu li {
+        margin: 0 10px;
+    }
+    .hero-section .hero-content h1 {
+        font-size: 38px;
+    }
+    .hero-section .hero-content h2 {
+        font-size: 24px;
+    }
+    .btn {
+        font-size: 18px;
+        padding: 10px 25px;
+    }
+    .section-title {
+        font-size: 28px;
+    }
+    .common-card .text {
+        min-height: 55px;
+    }
+    .common-card p {
+        min-height: 40px;
+    }
+    
+    /* Grids de Comunidades e Serviços tendem a 2 colunas em tablets */
+    .services-grid, .communities-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    /* Responsividade da Seção de Notícias (Carrossel) */
+    .news-card {
+        flex: 0 0 calc(50% - 15px); /* Agora mostra 2 cards por linha, com 30px de gap */
+        margin-right: 30px;
+    }
+    /* Ajuste para remover a margem direita do segundo card em cada par, e manter nos ímpares */
+    .news-card:nth-child(2n) {
+        margin-right: 0;
+    }
+    .news-card:nth-child(2n+1):not(:last-child) {
+        margin-right: 30px;
+    }
+    .news-card:last-child {
+        margin-right: 0;
+    }
+
+    .news-card img {
+        height: 180px;
+    }
+    .news-card .news-title {
+        font-size: 22px;
+        min-height: 55px;
+    }
+    .news-card .news-excerpt {
+        font-size: 14px;
+        min-height: 40px;
+    }
+
+    /* Responsividade da Página Sobre */
+    .internal-hero-section {
+        height: 35vh;
+        min-height: 200px;
+    }
+    .internal-hero-section .hero-content h1 {
+        font-size: 36px;
+    }
+    .internal-hero-section .hero-content h2 {
+        font-size: 20px;
+    }
+    .section-padding {
+        padding: 60px 0;
+    }
+    .about-content-section .content-text {
+        font-size: 16px;
+        text-align: left;
+    }
+    .values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    .leadership-grid {
+        grid-template-columns: 1fr;
+    }
+    .leader-card {
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+    }
+    .leader-card img {
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    /* Responsividade da Página Contato */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .contact-item {
+        text-align: left;
+        align-items: flex-start;
+        flex-direction: row;
+    }
+    .contact-item i {
+        margin-right: 15px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+    .contact-item h3 {
+        margin-bottom: 5px;
+    }
+    .contact-form {
+        padding: 25px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        font-size: 16px;
+    }
+    .form-group input, .form-group textarea {
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+    .map-container {
+        height: 350px;
+    }
+}
+
+/* Telas muito pequenas (smartphones) */
+@media (max-width: 576px) {
+    .main-header .logo a {
+        font-size: 28px;
+    }
+    .main-header .main-nav .menu li a {
+        font-size: 15px;
+        margin-left: 10px;
+    }
+    .hero-section {
+        padding: 0 10px;
+    }
+    .hero-section .hero-content h1 {
+        font-size: 32px;
+    }
+    .hero-section .hero-content h2 {
+        font-size: 20px;
+    }
+    .main-header {
+        padding: 15px 0;
+    }
+    .section-title {
+        margin: 40px 0 30px;
+        font-size: 26px;
+    }
+    .services-section, .communities-section, .news-section {
+        padding: 60px 0;
+    }
+    
+    /* Grids (Serviços e Comunidades) agora terão 1 coluna em telas muito pequenas */
+    .services-grid, .communities-grid {
+        grid-template-columns: 1fr;
+    }
+    /* Remove min-heights fixos para mobile para permitir que o conteúdo flua naturalmente */
+    .common-card {
+        height: auto;
+        min-height: unset;
+    }
+    .common-card .text {
+        min-height: unset;
+        margin-bottom: 10px;
+    }
+    .common-card p {
+        min-height: unset;
+        margin-top: 10px;
+    }
+
+    /* Responsividade da Seção de Notícias (Carrossel) */
+    .news-card {
+        flex: 0 0 100%; /* 1 card por linha em telas muito pequenas */
+        margin-right: 0;
+    }
+    .news-card img {
+        height: 220px;
+    }
+    /* Remover min-heights para títulos e resumos em telas muito pequenas para permitir que o conteúdo flua naturalmente */
+    .news-card .news-title,
+    .news-card .news-excerpt {
+        min-height: unset;
+        margin-bottom: 10px;
+    }
+    .news-card .news-content {
+        justify-content: flex-start;
+    }
+
+    /* Responsividade da Página Sobre */
+    .internal-hero-section {
+        height: 30vh;
+        min-height: 180px;
+    }
+    .internal-hero-section .hero-content h1 {
+        font-size: 30px;
+    }
+    .internal-hero-section .hero-content h2 {
+        font-size: 18px;
+    }
+    .about-content-section .content-text {
+        font-size: 15px;
+    }
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    .values-grid .value-item h3 {
+        font-size: 22px;
+    }
+    .leader-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .leader-card img {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    /* Responsividade da Página Contato */
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .contact-item i {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .contact-item h3 {
+        font-size: 20px;
+    }
+    .contact-item p {
+        font-size: 15px;
+    }
+    .contact-form {
+        padding: 20px;
+    }
+    .map-container {
+        height: 300px;
+    }
+}
